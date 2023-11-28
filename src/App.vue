@@ -1,6 +1,8 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import { ref } from 'vue'
+const count = ref(0)
 </script>
 
 <template>
@@ -8,13 +10,15 @@ import TheWelcome from './components/TheWelcome.vue'
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="My name is Dang Van Luan. I was doing it!" />
     </div>
   </header>
 
   <main>
     <TheWelcome />
   </main>
+
+  <button @click="count++">Count is: {{ count }}</button>
 </template>
 
 <style scoped>
@@ -25,6 +29,14 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+}
+
+button {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
 }
 
 @media (min-width: 1024px) {
