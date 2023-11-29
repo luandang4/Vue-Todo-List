@@ -1,8 +1,32 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+
 const count = ref(0)
+const isButtonDisabled = ref(true)
+const objectOfAttrs = {
+  id: 'container',
+  class: 'wrapper'
+}
+const eventName = 'href'
+
+function getUrl() {
+  return 'https://vuejs.org/guide/essentials/template-syntax.html'
+}
+
+function increment() {
+  console.log(count.value);
+  count.value++
+}
+
+function triggerError() {
+  throw new Error('This is a test error!');
+}
+
+onMounted(() => {
+  console.log(`The initial count is ${count.value}`)
+})
 </script>
 
 <template>
@@ -18,7 +42,15 @@ const count = ref(0)
     <TheWelcome />
   </main>
 
-  <button @click="count++">Count is: {{ count }}</button>
+  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="triggerError">Trigger Error</button>
+  <button :disabled="isButtonDisabled">Boolean Attributes Button</button>
+  <div v-bind="objectOfAttrs">Dynamically Binding Multiple Attributes</div>
+  <div :style="'color: red;'">Argument</div>
+  <div>
+    <p>Dynamic argument</p>
+    <a :[eventName]="getUrl()">URL</a>
+  </div>
 </template>
 
 <style scoped>
@@ -32,11 +64,13 @@ header {
 }
 
 button {
+  margin: 10px;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.8);
   width: 100px;
   height: 50px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 @media (min-width: 1024px) {
