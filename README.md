@@ -40,7 +40,9 @@ npm run build
  ref() -> đối tượng dùng để khởi tạo giá trị của biến
  vd: const number = ref(0)
  nội suy: giá trị của biến được xác định bằng thuộc tính value
- number.value //-> 0
+ vd: number.value //-> 0
+ trên DOM dùng biến
+ vd: <p>{{ number }}</p>
 ```
 
 ```
@@ -56,4 +58,3 @@ ví dụ:
 <form @submit.prevent="onSubmit">...</form>  -> Modifier này đảm bảo rằng khi sự kiện submit xảy ra, event.preventDefault() sẽ được gọi ngay lập tức, ngăn chặn hành vi mặc định của trình duyệt trong việc reload trang khi form được submit.
 <a @click.stop="onClick">Click me</a>        ->  Ngừng sự kiện lan truyền (gọi event.stopPropagation())
 ```
-
