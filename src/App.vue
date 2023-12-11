@@ -1,7 +1,8 @@
 <script setup>
 import Learning from './components/Learning.vue'
 import ToDo from './components/ToDo.vue'
-import Assignment from './components/Assigment.vue'
+import Assignments from './components/Assigments.vue'
+import LearnProp from './components/LearnProp.vue';
 </script>
 
 <template>
@@ -12,8 +13,8 @@ import Assignment from './components/Assigment.vue'
         <div class="col"><Learning/></div>
       </div>
       <div class="row">
-        <div class="col"><Assignment/></div>
-        <div class="col"></div>
+        <div class="col"><Assignments/></div>
+        <div class="col"><LearnProp/></div>
       </div>
     </section>
   </main>
